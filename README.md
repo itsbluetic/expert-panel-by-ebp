@@ -43,7 +43,7 @@ cp 전문가소환.md ~/.claude/commands/전문가소환.md
 
 ## Credits
 
-- [김창준](https://github.com/cojette) — EBP 접근법과 "근거 없는 전문가 조언의 위험성"에 대한 사고의 영감
+- 김창준 — EBP 접근법과 "근거 없는 전문가 조언의 위험성"에 대한 사고의 영감
 
 ## License
 
