@@ -43,15 +43,18 @@ cp -r skills/expert-panel .claude/skills/
 
 트리거 키워드: `전문가소환`, `전문가 패널`, `expert panel`, `근거 기반 분석`, `EBP 분석`.
 
-## 7단계 흐름
+## 8단계 흐름 (분할 User Gate)
 
+0. **Goal Mirror & 현재 상황** — 텍스트 mirror + `AskUserQuestion` 1개 *(Pre-flight Gate)*
 1. **학문 지도** — 주제 관련 학문 분야 2-4개 식별, 주 근거원 선택
 2. **근거 지형** — WebSearch로 메타분석/체계적 리뷰 탐색, 5단계 태그 부여
-3. **컨텍스트 수집** — `AskUserQuestion`으로 사용자 상황 수집 *(User Gate)*
+3. **깊은 제약 수집** — 자원·도구·측정기준 `AskUserQuestion` *(Deep Gate)*
 4. **패널 토론** — 6인 전문가, 근거 태그 동반 4라운드
 5. **구현 설계** — Core/Peripheral Practice 분리, 사용자 맥락 적응
 6. **실천 실험** — MVE + 성공/실패 기준 + 반복 주기
 7. **저장** — `AskUserQuestion`으로 저장 위치 확인 *(User Gate)*
+
+> **분할 게이트 설계**: harness `specify`/`scaffold`의 "L0 Goal → L1 scan → L2 deep interview" 패턴 차용. 0단계가 1-2단계의 학문/근거 탐색을 사용자 맥락에 좁혀주고, 3단계는 근거를 본 다음에야 의미 있는 답을 얻을 수 있는 자원·제약·측정기준만 수집.
 
 ## 근거 수준 체계
 
@@ -99,10 +102,11 @@ expert-panel-by-ebp/
 ## v3.1.0 변경점 (vs v3.0.0)
 
 - `allowed-tools` 명시 (Read, WebSearch, Write, AskUserQuestion)
-- 3단계·7단계에 `AskUserQuestion` 도구 호출 명시 (이전엔 텍스트로만)
+- **분할 User Gate 도입** — 새 0단계(Mirror + 현재 상황) + 기존 3단계(깊은 제약)로 분리
+- 0·3·7단계에 `AskUserQuestion` 도구 호출 명시 (이전엔 텍스트로만)
 - "Hard Rules" 섹션 추가 (5개 행동 규칙)
-- "Checklist Before Stopping" 추가 (9항목)
-- 6축 매핑 표 추가
+- "Checklist Before Stopping" 10항목으로 확장 (0단계 추가)
+- 6축 매핑 표 추가 (분할 게이트 반영)
 - 폴더 구조로 재배치 (`SKILL.md` + `references/`)
 
 ## Credits
